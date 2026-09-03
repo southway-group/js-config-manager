@@ -2,6 +2,14 @@
 
 Lightweight hierarchical config loader for Node.js — per-environment sections, cross-references, `.env` loading, and `process.env` interpolation.
 
+## Install
+
+```bash
+npm install github:southway-group/js-config-manager
+```
+
+> Coming to npm as `js-config-manager` soon.
+
 Node.js equivalent of [config-manager](https://github.com/lukaszplk/config-manager).
 
 ---
