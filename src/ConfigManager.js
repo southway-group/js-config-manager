@@ -24,6 +24,12 @@ class ConfigManager {
     // Load .env from config/ dir (without overwriting)
     this._loadDotEnv(path.dirname(this._configPath));
 
+    if (!section && !process.env.NODE_ENV) {
+      process.stderr.write(
+        '[ConfigManager] WARNING: NODE_ENV is not set. Defaulting to "development". ' +
+        'Set NODE_ENV to one of: development, staging, production, test.\n'
+      );
+    }
     this.section = section || process.env.NODE_ENV || 'development';
     this._log(`Config: ${this._configPath} | Section: ${this.section}`);
 

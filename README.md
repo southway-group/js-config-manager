@@ -14,6 +14,20 @@ Node.js equivalent of [config-manager](https://github.com/lukaszplk/config-manag
 
 ---
 
+## Environment selection
+
+`ConfigManager` reads `NODE_ENV` from `process.env` to pick which section of `config/config.json` to load.
+
+- **`NODE_ENV` should always be set** — by Infisical, your CI/CD pipeline, or your shell before starting the process.
+- Supported values: `development`, `staging`, `production`, `test` (must match a top-level key in `config.json`).
+- If `NODE_ENV` is missing, a warning is printed to stderr and `development` is used as a fallback.
+- To override programmatically, pass `section` explicitly:
+  ```js
+  new ConfigManager({ section: 'production' })
+  ```
+
+---
+
 ## Installation
 
 ```bash
